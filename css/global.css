@@ -4,11 +4,24 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: #a0979a;
+
+}
+
 img {
     width: 100%;
     object-fit: cover;
 }
 
 .container {
-    aspect-ratio: 73/40;
+    aspect-ratio: 1.8;
+}
+
+.tmp {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: .3;
+
 }
