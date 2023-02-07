@@ -9,19 +9,24 @@ body {
 
 }
 
-img {
-    width: 100%;
-    object-fit: cover;
-}
-
 .container {
-    aspect-ratio: 1.8;
+    aspect-ratio: 730/402;
 }
 
 .tmp {
     position: absolute;
     top: 0;
     left: 0;
-    opacity: .3;
+    opacity: 0.7;
+    width: 100%;
 
+}
+
+.btn {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    background-color: orange;
+    color: white;
+    padding: .5rem 1rem;
 }

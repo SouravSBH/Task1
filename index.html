@@ -12,15 +12,31 @@
 
 <body>
     <div class="container grid">
-        <div class="bg-top" src="assets/img/eye-catch-bg-top-image.jpeg" alt=""> </div>
-        <div class="bg-bottom" src="assets/img/eye-catch-bg-bottom-image.jpeg" alt=""></div>
-        <div class="pc-left" src="assets/img/eye-catch-pc-image.png" alt=""></div>
-        <div class="sp-right" src="assets/img/eye-catch-sp-image.png" alt=""></div>
+        <img class="bg-top" src="assets/img/eye-catch-bg-top-image.jpeg" alt=""> </img>
+        <img class="bg-bottom" src="assets/img/eye-catch-bg-bottom-image.jpeg" alt=""></img>
+        <img class="pc-left" src="assets/img/eye-catch-pc-image.png" alt=""></img>
+        <img class="sp-right" src="assets/img/eye-catch-sp-image.png" alt=""></img>
     </div>
-    <!-- <img class="tmp" src="assets/img/tmpM.jpg" alt=""> -->
+    <img class="tmp" src="assets/img/tmp.jpg" alt="">
+    <button class="btn" onclick="hide(event)">Show/Hide</button>
     <!-- <div class="tmp">
 
     </div> -->
+
+    <script>
+        const overlap = document.getElementsByClassName("tmp");
+        let show = true;
+        function hide(event) {
+            console.dir(show)
+
+            overlap[0].style.opacity = show ? ".8" : "0";
+            show = !show
+
+
+
+
+        }
+    </script>
 
 </body>
 
