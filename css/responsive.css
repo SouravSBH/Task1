@@ -23,7 +23,7 @@
 
     .container {
         overflow: show;
-        aspect-ratio: 767 /1362;
+        /* aspect-ratio: 767 /1362; */
 
         /* width: 100%;
         height: calc(100% / 0.5631); */
