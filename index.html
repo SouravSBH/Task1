@@ -7,20 +7,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/grid.css">
+    <link rel="stylesheet" href="css/responsive.css">
     <title>Task1</title>
 </head>
 
 <body>
-    <div class="container grid">
-        <img class="bg-top" src="assets/img/eye-catch-bg-top-image.jpeg" alt=""> </img>
-        <img class="bg-bottom" src="assets/img/eye-catch-bg-bottom-image.jpeg" alt=""></img>
-        <img class="pc-left" src="assets/img/eye-catch-pc-image.png" alt=""></img>
-        <img class="sp-right" src="assets/img/eye-catch-sp-image.png" alt=""></img>
+    <div class="wrapper center">
+        <div class="container grid">
+            <img class="bg-top" src="assets/img/eye-catch-bg-top-image.jpeg" alt=""> </img>
+            <img class="bg-bottom" src="assets/img/eye-catch-bg-bottom-image.jpeg" alt=""></img>
+            <img class="pc-left" src="assets/img/eye-catch-pc-image.png" alt=""></img>
+            <img class="sp-right" src="assets/img/eye-catch-sp-image.png" alt=""></img>
+        </div>
     </div>
-    <img class="tmp dsk" src="assets/img/tmp.jpg" alt="">
-    <img class="tmp mbl" src="assets/img/tmpM.jpg" alt="">
 
-    <button class="btn" onclick="hide(event)">Show/Hide</button>
+    <img class="tmp dsk  wrapper" src="assets/img/tmp2.png" alt="">
+    <img class="tmp mbl wrapper" src="assets/img/tmp2M.png" alt="">
+
+    <button class="btn" onclick="hide(event)">Show</button>
 
 
 
@@ -30,12 +34,17 @@
 
     <script>
         const overlap = document.getElementsByClassName("tmp");
+        const btn = document.getElementsByClassName("btn");
         let show = false;
         function hide(event) {
-            console.dir(show)
+            console.dir(btn[0])
 
             overlap[0].style.opacity = show ? ".8" : "0";
             overlap[1].style.opacity = show ? ".8" : "0";
+
+            btn[0].innerText = !show ? "Show" : "Hide";
+
+
 
             show = !show
 
