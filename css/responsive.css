@@ -1,8 +1,7 @@
 @media (max-width:768px) {
 
-    .wrapper {
-        width: 100vw;
-    }
+
+
 
     .mbl {
         display: block;
@@ -22,7 +21,14 @@
     } */
 
     .container {
-        overflow: show;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        /* display: none; */
         /* aspect-ratio: 767 /1362; */
 
         /* width: 100%;
@@ -36,43 +42,60 @@
         grid-template-rows: repeat(20, 1fr);
         grid-template-columns: repeat(48, 1fr);
 
-        --bg-left: 6;
-        --bg-right: 44;
+        grid-template-rows: 155px 85px 340px 85px 85px 220px;
+        grid-template-rows: 132px 63px 304px 74px 73px 188px;
+
+        grid-template-rows: 132px 63px 11px 304px 74px 73px 188px;
+        grid-template-rows: 132px 63px 10px 283px 12px 72px 72px 190px;
+        /* grid-template-rows: 132+ 63+ 10+ 283+ 12+ 72+ 72+ 190; */
+        grid-template-rows: 15.83% 7.55% 1.2% 33.9% 1.43% 8.6% 8.6% 22.78%;
+
+        /* grid-template-rows: 17.1% 9.4% 37.6% 9.4% 9.4% 17.1%; */
+        grid-template-columns: 71px 286px 108px 98px 71px;
+        grid-template-columns: 57px 227px 84px 76px 57px;
+        grid-template-columns: 57px 220px 94px 72px 57px;
+        grid-template-columns: 11.4% 44% 18.8% 14.4% 11.4%;
+        /* grid-template-columns: 11.2% 44.9% 17.0% 15.5% 11.2%; */
+
+
+        --bg-left: 2;
+        --bg-right: -2;
         justify-items: stretch;
 
     }
 
     .bg-top {
-        grid-row: 4/15;
+        grid-row: 2/-3;
         grid-column: var(--bg-left)/var(--bg-right);
 
     }
 
     .bg-bottom {
+        grid-row: -3/-2;
         grid-column: var(--bg-left)/var(--bg-right);
 
 
-        grid-row: 15/17;
 
     }
 
     .pc-left {
-        grid-row: 6/13;
-        grid-column-end: 11;
+        grid-row: 4/6;
+        /* grid-column: 1/3; */
+        grid-column-end: 3;
         grid-column-start: 1;
-        justify-self: center;
-
+        justify-self: end;
 
 
 
     }
 
     .sp-right {
-        grid-row: 6/13;
-        grid-column: -11/-1;
+        grid-row: 3/5;
+
+        grid-column: 4/-1;
 
 
-        justify-self: center;
+        justify-self: start;
 
         /* transform: none; */
     }
