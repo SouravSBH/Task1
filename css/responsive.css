@@ -82,6 +82,7 @@
         grid-column-end: 3;
         grid-column-start: 1;
         justify-self: flex-end;
+        object-fit: contain;
 
 
 
@@ -94,6 +95,7 @@
 
 
         justify-self: flex-start;
+        object-fit: contain;
 
         /* transform: none; */
     }
@@ -101,9 +103,14 @@
 
 }
 
-@media (max-width:320px) {
+@media (max-width:400px) {
+
+    .grid {
+        grid-template-columns: 1fr 132px 1px 44px 1fr;
+    }
 
     .sp-right {
-        transform: none;
+        object-fit: cover;
     }
+
 }

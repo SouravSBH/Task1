@@ -9,7 +9,7 @@
 
     grid-template-columns: 5.17% 25.93% 25.93% 8.47% 8.47% 26.08%;
     grid-template-columns: 6.71% 25.93% 25.93% 8.47% 8.47% 24.4%;
-    grid-template-columns: 6.71% 495px 495px 170px 170px 24.4%;
+    /* grid-template-columns: 6.71% 495px 495px 170px 170px 24.4%; */
 
 
 
@@ -34,6 +34,7 @@
     grid-row: 2/-2;
     grid-column: var(--bg-col-left)/var(--bg-col-right);
 
+    object-fit: strech;
 
 }
 
@@ -45,6 +46,7 @@
     grid-row: -2/-1;
 
     grid-column: var(--bg-col-left)/var(--bg-col-right);
+    object-fit: strech;
 
 
 
@@ -60,7 +62,9 @@
 
     grid-column: 4/6;
 
+    justify-self: stretch;
 
+    object-fit: contain;
 
 
 }
@@ -77,8 +81,14 @@
     justify-self: center;
 
 
+
     grid-column: 2/4;
 
+
+
+    justify-self: stretch;
+
+    object-fit: contain;
 
 
 
