@@ -9,6 +9,8 @@
 
     grid-template-columns: 5.17% 25.93% 25.93% 8.47% 8.47% 26.08%;
     grid-template-columns: 6.71% 25.93% 25.93% 8.47% 8.47% 24.4%;
+    grid-template-columns: 6.71% 495px 495px 170px 170px 24.4%;
+
 
 
     --bg-col-left: 3;
@@ -53,8 +55,8 @@
     grid-row: 3/4;
 
     grid-column: calc(var(--bg-col-right) - 1) / calc(var(--bg-col-right) + 1);
-    justify-self: stretch;
-    transform: translateX(2px);
+    justify-self: center;
+    /* transform: translateX(2px); */
 
     grid-column: 4/6;
 
@@ -72,7 +74,7 @@
 
 
     /* grid-column: calc(var(--bg-col-left) - 3) / calc(var(--bg-col-left) + 3); */
-    justify-self: stretch;
+    justify-self: center;
 
 
     grid-column: 2/4;

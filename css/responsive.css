@@ -13,6 +13,7 @@
 
     body {
         background-color: #fff;
+
     }
 
     /* .wrapper {
@@ -21,13 +22,8 @@
     } */
 
     .container {
-        overflow: hidden;
         width: 100%;
-        height: 100%;
         opacity: 1;
-        position: absolute;
-        top: 0;
-        left: 0;
         /* display: none; */
         /* aspect-ratio: 767 /1362; */
 
@@ -48,13 +44,15 @@
         grid-template-rows: 132px 63px 11px 304px 74px 73px 188px;
         grid-template-rows: 132px 63px 10px 283px 12px 72px 72px 190px;
         /* grid-template-rows: 132+ 63+ 10+ 283+ 12+ 72+ 72+ 190; */
-        grid-template-rows: 15.83% 7.55% 1.2% 33.9% 1.43% 8.6% 8.6% 22.78%;
+        /* grid-template-rows: 15.83% 7.55% 1.2% 33.9% 1.43% 8.6% 8.6% 22.78%; */
 
         /* grid-template-rows: 17.1% 9.4% 37.6% 9.4% 9.4% 17.1%; */
         grid-template-columns: 71px 286px 108px 98px 71px;
         grid-template-columns: 57px 227px 84px 76px 57px;
         grid-template-columns: 57px 220px 94px 72px 57px;
-        grid-template-columns: 11.4% 44% 18.8% 14.4% 11.4%;
+        grid-template-columns: 11.4% 220px 18.8% 73px 11.4%;
+        grid-template-columns: 1fr 220px 2fr 73px 1fr;
+
         /* grid-template-columns: 11.2% 44.9% 17.0% 15.5% 11.2%; */
 
 
@@ -83,7 +81,7 @@
         /* grid-column: 1/3; */
         grid-column-end: 3;
         grid-column-start: 1;
-        justify-self: end;
+        justify-self: flex-end;
 
 
 
@@ -95,7 +93,7 @@
         grid-column: 4/-1;
 
 
-        justify-self: start;
+        justify-self: flex-start;
 
         /* transform: none; */
     }
