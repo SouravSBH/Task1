@@ -35,7 +35,7 @@
 
 
         grid-template-columns: 5% 30.26% 30.26% 11.73% 8.47% 8.47% 5%;
-        grid-template-columns: 0fr 2fr 2fr 0fr 1fr 1fr 0fr;
+        grid-template-columns: 0fr 2fr 2fr 2fr 1fr 1fr 0fr;
 
 
 
@@ -46,8 +46,9 @@
         justify-content: center;
         align-items: stretch;
         align-content: center;
-        transform: scale(1.55) translate(-8%, 12%);
+        /* transform: scale(1.55) translate(-8%, 12%); */
         overflow: hidden;
+        transform: scaleY(1.6) scalex(1.2) translate(-5%, 12%);
 
 
     }
@@ -75,7 +76,7 @@
         grid-column-end: 4;
         grid-column-start: 2;
         /* justify-self: center; */
-        object-fit: contain;
+        /* object-fit: contain; */
 
 
 
@@ -88,7 +89,7 @@
 
 
         /* justify-self: center; */
-        object-fit: contain;
+        /* object-fit: contain; */
 
         /* transform: none; */
     }
