@@ -1,0 +1,941 @@
+sbh@sbh-TravelMate-P214-53:~$ git commit --help
+sbh@sbh-TravelMate-P214-53:~$ git commit -h
+usage: git commit [<options>] [--] <pathspec>...
+
+    -q, --quiet           suppress summary after successful commit
+    -v, --verbose         show diff in commit message template
+
+Commit message options
+    -F, --file <file>     read message from file
+    --author <author>     override author for commit
+    --date <date>         override date for commit
+    -m, --message <message>
+                          commit message
+    -c, --reedit-message <commit>
+                          reuse and edit message from specified commit
+    -C, --reuse-message <commit>
+                          reuse message from specified commit
+    --fixup [(amend|reword):]commit
+                          use autosquash formatted message to fixup or amend/reword specified commit
+    --squash <commit>     use autosquash formatted message to squash specified commit
+    --reset-author        the commit is authored by me now (used with -C/-c/--amend)
+    --trailer <trailer>   add custom trailer(s)
+    -s, --signoff         add a Signed-off-by trailer
+    -t, --template <file>
+                          use specified template file
+    -e, --edit            force edit of commit
+    --cleanup <mode>      how to strip spaces and #comments from message
+    --status              include status in commit message template
+    -S, --gpg-sign[=<key-id>]
+                          GPG sign commit
+
+Commit contents options
+    -a, --all             commit all changed files
+    -i, --include         add specified files to index for commit
+    --interactive         interactively add files
+    -p, --patch           interactively add changes
+    -o, --only            commit only specified files
+    -n, --no-verify       bypass pre-commit and commit-msg hooks
+    --dry-run             show what would be committed
+    --short               show status concisely
+    --branch              show branch information
+    --ahead-behind        compute full ahead/behind values
+    --porcelain           machine-readable output
+    --long                show status in long format (default)
+    -z, --null            terminate entries with NUL
+    --amend               amend previous commit
+    --no-post-rewrite     bypass post-rewrite hook
+    -u, --untracked-files[=<mode>]
+                          show untracked files, optional modes: all, normal, no. (Default: all)
+    --pathspec-from-file <file>
+                          read pathspec from file
+    --pathspec-file-nul   with --pathspec-from-file, pathspec elements are separated with NUL character
+
+sbh@sbh-TravelMate-P214-53:~$ ls
+Desktop    Downloads  package-lock.json  Public  Templates
+Documents  Music      Pictures           snap    Videos
+sbh@sbh-TravelMate-P214-53:~$ Desktop
+Desktop: command not found
+sbh@sbh-TravelMate-P214-53:~$ cd desktop
+bash: cd: desktop: No such file or directory
+sbh@sbh-TravelMate-P214-53:~$ cd Desktip
+bash: cd: Desktip: No such file or directory
+sbh@sbh-TravelMate-P214-53:~$ cd Desktop
+sbh@sbh-TravelMate-P214-53:~/Desktop$ mk Moon
+mk: command not found
+sbh@sbh-TravelMate-P214-53:~/Desktop$ mkdir Moon
+sbh@sbh-TravelMate-P214-53:~/Desktop$ cd Moon
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git init
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint: 
+hint: 	git config --global init.defaultBranch <name>
+hint: 
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint: 
+hint: 	git branch -m <name>
+Initialized empty Git repository in /home/sbh/Desktop/Moon/.git/
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ ls -a
+.  ..  .git
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ open .git
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ echo hello>file.txt
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ echo hi>file2.txt
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	file.txt
+	file2.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ echo world>>file.txt
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	file.txt
+	file2.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git add *.txt
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+	new file:   file.txt
+	new file:   file2.txt
+
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ echo xD>>file.txt
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+	new file:   file.txt
+	new file:   file2.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   file.txt
+
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git add file.txt
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+	new file:   file.txt
+	new file:   file2.txt
+
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git commit
+[master (root-commit) 76d33ba] a short desc
+ 2 files changed, 4 insertions(+)
+ create mode 100644 file.txt
+ create mode 100644 file2.txt
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git status
+On branch master
+nothing to commit, working tree clean
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ .gitignore
+.gitignore: command not found
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ .gitignore
+.gitignore: command not found
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ echo f>.gitignore
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	.gitignore
+
+nothing added to commit but untracked files present (use "git add" to track)
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ mkdir logs
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ cd logs
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon/logs$ echo log>log.log
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon/logs$ cd ../
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	.gitignore
+	logs/
+
+nothing added to commit but untracked files present (use "git add" to track)
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ echo logs/>>.gitignore
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	.gitignore
+
+nothing added to commit but untracked files present (use "git add" to track)
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git commit -am ".gitignore"
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	.gitignore
+
+nothing added to commit but untracked files present (use "git add" to track)
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git commit -a -m ".gitignore"
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	.gitignore
+
+nothing added to commit but untracked files present (use "git add" to track)
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git add .gitignore
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git commit -m "ignore"
+[master 169171c] ignore
+ 1 file changed, 3 insertions(+)
+ create mode 100644 .gitignore
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git status
+On branch master
+nothing to commit, working tree clean
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ echo test>bin/sth.exe
+bash: bin/sth.exe: No such file or directory
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ mkdir bin
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ echo test>bin/sth.exe
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	bin/
+
+nothing added to commit but untracked files present (use "git add" to track)
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$  git add .
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git commit -m "Hii"
+[master ba38c20] Hii
+ 1 file changed, 1 insertion(+)
+ create mode 100644 bin/sth.exe
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ echo bin/>>.gitignore
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ open .gitignore
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   .gitignore
+
+no changes added to commit (use "git add" and/or "git commit -a")
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git commit -am "ignore"
+[master 59fcb2c] ignore
+ 1 file changed, 1 insertion(+)
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git status
+On branch master
+nothing to commit, working tree clean
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ echo hiii>bin/hola.exe
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git status
+On branch master
+nothing to commit, working tree clean
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ echo hiii>>bin/sth.exe
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   bin/sth.exe
+
+no changes added to commit (use "git add" and/or "git commit -a")
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git ls
+git: 'ls' is not a git command. See 'git --help'.
+
+The most similar command is
+	log
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git ls-files
+.gitignore
+bin/sth.exe
+file.txt
+file2.txt
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git rm --cached
+fatal: No pathspec was given. Which files should I remove?
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git rm --cached -r bin/
+rm 'bin/sth.exe'
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ ls
+bin  file2.txt  file.txt  logs
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ cd bin
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon/bin$ ls
+hola.exe  sth.exe
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon/bin$ cd .
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon/bin$ cd ../
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	deleted:    bin/sth.exe
+
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git commit -m "bin removed from staged"
+[master 1b77415] bin removed from staged
+ 1 file changed, 1 deletion(-)
+ delete mode 100644 bin/sth.exe
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ ls
+bin  file2.txt  file.txt  logs
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ echo onex>>file.txt
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git status -s
+ M file.txt
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git add 
+Nothing specified, nothing added.
+hint: Maybe you wanted to say 'git add .'?
+hint: Turn this message off by running
+hint: "git config advice.addEmptyPathspec false"
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git add  file.txt
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git status -s
+M  file.txt
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git diff --staged
+diff --git a/file.txt b/file.txt
+index 6a598c8..ff19b6d 100644
+--- a/file.txt
++++ b/file.txt
+@@ -1,3 +1,4 @@
+ hello
+ world
+ xD
++onex
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git log 
+commit 1b77415b59209a56259d4f33647525504e9b3d86 (HEAD -> master)
+Author: SouravSBH <124552082+SouravSBH@users.noreply.github.com>
+Date:   Fri Feb 10 11:45:41 2023 +0600
+
+    bin removed from staged
+
+commit 59fcb2c93591e8a99760438514538991b1c6d36a
+Author: SouravSBH <124552082+SouravSBH@users.noreply.github.com>
+Date:   Fri Feb 10 11:39:54 2023 +0600
+
+    ignore
+
+commit ba38c20d595453928afcd5949b6b08cc35c37f01
+Author: SouravSBH <124552082+SouravSBH@users.noreply.github.com>
+Date:   Fri Feb 10 11:32:42 2023 +0600
+
+    Hii
+
+commit 169171c8161ec436dc4b0b83ef35298484244a7c
+Author: SouravSBH <124552082+SouravSBH@users.noreply.github.com>
+Date:   Fri Feb 10 11:19:14 2023 +0600
+
+    ignore
+
+commit 76d33ba4307513a181459786773d8639ebd9402a
+Author: SouravSBH <124552082+SouravSBH@users.noreply.github.com>
+Date:   Fri Feb 10 10:07:47 2023 +0600
+
+    a short desc
+    
+    a long desc
+    hiiiiiii
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git config --help
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git config -h
+usage: git config [<options>]
+
+Config file location
+    --global              use global config file
+    --system              use system config file
+    --local               use repository config file
+    --worktree            use per-worktree config file
+    -f, --file <file>     use given config file
+    --blob <blob-id>      read config from given blob object
+
+Action
+    --get                 get value: name [value-pattern]
+    --get-all             get all values: key [value-pattern]
+    --get-regexp          get values for regexp: name-regex [value-pattern]
+    --get-urlmatch        get value specific for the URL: section[.var] URL
+    --replace-all         replace all matching variables: name value [value-pattern]
+    --add                 add a new variable: name value
+    --unset               remove a variable: name [value-pattern]
+    --unset-all           remove all matches: name [value-pattern]
+    --rename-section      rename section: old-name new-name
+    --remove-section      remove a section: name
+    -l, --list            list all
+    --fixed-value         use string equality when comparing values to 'value-pattern'
+    -e, --edit            open an editor
+    --get-color           find the color configured: slot [default]
+    --get-colorbool       find the color setting: slot [stdout-is-tty]
+
+Type
+    -t, --type <>         value is given this type
+    --bool                value is "true" or "false"
+    --int                 value is decimal number
+    --bool-or-int         value is --bool or --int
+    --bool-or-str         value is --bool or string
+    --path                value is a path (file or directory name)
+    --expiry-date         value is an expiry date
+
+Other
+    -z, --null            terminate values with NUL byte
+    --name-only           show variable names only
+    --includes            respect include directives on lookup
+    --show-origin         show origin of config (file, standard input, blob, command line)
+    --show-scope          show scope of config (worktree, local, global, system, command)
+    --default <value>     with --get, use default value when missing entry
+
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git config --global diff.tool vscode
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git config --global difftool.vscode.cmd
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git config --global difftool.vscode.cmd "code --wait --diff $LOCAL $REMOTE"
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git config --global -e
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git difftool
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git difftool --stage
+error: invalid option: --stage
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git difftool
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ echo h>>file.txt
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git difftool
+
+Viewing (1/1): 'file.txt'
+Launch 'vscode' [Y/n]? y
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git add .
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git difftool --staged
+
+Viewing (1/1): 'file.txt'
+Launch 'vscode' [Y/n]? n
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$  git diff --staged
+diff --git a/file.txt b/file.txt
+index 6a598c8..d52ebf6 100644
+--- a/file.txt
++++ b/file.txt
+@@ -1,3 +1,5 @@
+ hello
+ world
+ xD
++onex
++h
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git show HEAD
+commit 1b77415b59209a56259d4f33647525504e9b3d86 (HEAD -> master)
+Author: SouravSBH <124552082+SouravSBH@users.noreply.github.com>
+Date:   Fri Feb 10 11:45:41 2023 +0600
+
+    bin removed from staged
+
+diff --git a/bin/sth.exe b/bin/sth.exe
+deleted file mode 100644
+index 9daeafb..0000000
+--- a/bin/sth.exe
++++ /dev/null
+@@ -1 +0,0 @@
+-test
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git show HEAD~2
+commit ba38c20d595453928afcd5949b6b08cc35c37f01
+Author: SouravSBH <124552082+SouravSBH@users.noreply.github.com>
+Date:   Fri Feb 10 11:32:42 2023 +0600
+
+    Hii
+
+diff --git a/bin/sth.exe b/bin/sth.exe
+new file mode 100644
+index 0000000..9daeafb
+--- /dev/null
++++ b/bin/sth.exe
+@@ -0,0 +1 @@
++test
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git show HEAD~2:bin/sth.exe
+test
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git ls-tree
+usage: git ls-tree [<options>] <tree-ish> [<path>...]
+
+    -d                    only show trees
+    -r                    recurse into subtrees
+    -t                    show trees when recursing
+    -z                    terminate entries with NUL byte
+    -l, --long            include object size
+    --name-only           list only filenames
+    --name-status         list only filenames
+    --full-name           use full path names
+    --full-tree           list entire tree; not just current directory (implies --full-name)
+    --abbrev[=<n>]        use <n> digits to display object names
+
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git ls-tree HEAD~1
+100644 blob 84fe6b7e04ee966688c9c9225bb5ea16d589a3fd	.gitignore
+040000 tree 3c537ead986a6886c9a5f203bf05724b6b5a63ba	bin
+100644 blob 6a598c8b0ed3e8bff81310dc0861e07aec642d8e	file.txt
+100644 blob 45b983be36b73c0788dc9cbcb76cbb80fc7bb057	file2.txt
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   file.txt
+
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ 
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ 
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ 
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ echo file>file3.txt
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   file.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	file3.txt
+
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git status -s
+M  file.txt
+?? file3.txt
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git clean
+fatal: clean.requireForce defaults to true and neither -i, -n, nor -f given; refusing to clean
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git clean -fd
+Removing file3.txt
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git status -s
+M  file.txt
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git commit -m "Yoyo"
+[master a9a9c46] Yoyo
+ 1 file changed, 2 insertions(+)
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git rm file.txt
+rm 'file.txt'
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git commit -m "Delete"
+[master 5379b27] Delete
+ 1 file changed, 5 deletions(-)
+ delete mode 100644 file.txt
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git log --oneline
+5379b27 (HEAD -> master) Delete
+a9a9c46 Yoyo
+1b77415 bin removed from staged
+59fcb2c ignore
+ba38c20 Hii
+169171c ignore
+76d33ba a short desc
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$  git restore -h
+usage: git restore [<options>] [--source=<branch>] <file>...
+
+    -s, --source <tree-ish>
+                          which tree-ish to checkout from
+    -S, --staged          restore the index
+    -W, --worktree        restore the working tree (default)
+    --ignore-unmerged     ignore unmerged entries
+    --overlay             use overlay mode
+    -q, --quiet           suppress progress reporting
+    --recurse-submodules[=<checkout>]
+                          control recursive updating of submodules
+    --progress            force progress reporting
+    -m, --merge           perform a 3-way merge with the new branch
+    --conflict <style>    conflict style (merge or diff3)
+    -2, --ours            checkout our version for unmerged files
+    -3, --theirs          checkout their version for unmerged files
+    -p, --patch           select hunks interactively
+    --ignore-skip-worktree-bits
+                          do not limit pathspecs to sparse entries only
+    --pathspec-from-file <file>
+                          read pathspec from file
+    --pathspec-file-nul   with --pathspec-from-file, pathspec elements are separated with NUL character
+
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git restore --source=HEAD~1 file.txt
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ ls
+bin  file2.txt  file.txt  logs
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ status
+Command 'status' not found, did you mean:
+  command 'statup' from snap statup (0.79.91)
+  command 'statfs' from deb gocryptfs (1.8.0-1build1)
+  command 'states' from deb enscript (1.6.5.90-3)
+  command 'qstatus' from deb gridengine-client (8.1.9+dfsg-10build1)
+See 'snap info <snapname>' for additional versions.
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git status -s
+?? file.txt
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git log --oneline
+5379b27 (HEAD -> master) Delete
+a9a9c46 Yoyo
+1b77415 bin removed from staged
+59fcb2c ignore
+ba38c20 Hii
+169171c ignore
+76d33ba a short desc
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ ls
+bin  file2.txt  file.txt  logs
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git restore --source=HEAD file.txt
+error: pathspec 'file.txt' did not match any file(s) known to git
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git restore --source=HEAD 
+fatal: you must specify path(s) to restore
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git restore --source=HEAD .
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ ls
+bin  file2.txt  file.txt  logs
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git restore --source=HEAD~1 file.txt
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ ls
+bin  file2.txt  file.txt  logs
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git branch
+* master
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git branch bugfix
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git branch
+  bugfix
+* master
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	file.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git add .
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git commit -m "last commit of snapshot"
+[master 685dd71] last commit of snapshot
+ 1 file changed, 5 insertions(+)
+ create mode 100644 file.txt
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git status
+On branch master
+nothing to commit, working tree clean
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git status -s
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git switch bugfix
+Switched to branch 'bugfix'
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git branch -m bugfix bugfix-new-name
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git branch
+* bugfix-new-name
+  master
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ echo branch>branch.txt
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git status -s
+?? branch.txt
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git add .
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git commit -m "branch 1st commit"
+[bugfix-new-name d9dd201] branch 1st commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 branch.txt
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ ls
+bin  branch.txt  file2.txt  logs
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git switch master
+Switched to branch 'master'
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ ls
+bin  file2.txt  file.txt  logs
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git log
+commit 685dd71db090b914a4be58f267f2b51e22362f69 (HEAD -> master)
+Author: SouravSBH <124552082+SouravSBH@users.noreply.github.com>
+Date:   Fri Feb 10 15:55:49 2023 +0600
+
+    last commit of snapshot
+
+commit 5379b2784304d900f9d0f9d71715c5f7111fad9a
+Author: SouravSBH <124552082+SouravSBH@users.noreply.github.com>
+Date:   Fri Feb 10 15:23:02 2023 +0600
+
+    Delete
+
+commit a9a9c465b85194ecb5b2a03f4ae7a67336d6ddd9
+Author: SouravSBH <124552082+SouravSBH@users.noreply.github.com>
+Date:   Fri Feb 10 15:22:43 2023 +0600
+
+    Yoyo
+
+commit 1b77415b59209a56259d4f33647525504e9b3d86
+Author: SouravSBH <124552082+SouravSBH@users.noreply.github.com>
+Date:   Fri Feb 10 11:45:41 2023 +0600
+
+    bin removed from staged
+
+commit 59fcb2c93591e8a99760438514538991b1c6d36a
+Author: SouravSBH <124552082+SouravSBH@users.noreply.github.com>
+Date:   Fri Feb 10 11:39:54 2023 +0600
+
+    ignore
+
+commit ba38c20d595453928afcd5949b6b08cc35c37f01
+Author: SouravSBH <124552082+SouravSBH@users.noreply.github.com>
+Date:   Fri Feb 10 11:32:42 2023 +0600
+
+    Hii
+
+commit 169171c8161ec436dc4b0b83ef35298484244a7c
+:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+commit 685dd71db090b914a4be58f267f2b51e22362f69 (HEAD -> master)
+Author: SouravSBH <124552082+SouravSBH@users.noreply.github.com>
+Date:   Fri Feb 10 15:55:49 2023 +0600
+
+    last commit of snapshot
+
+commit 5379b2784304d900f9d0f9d71715c5f7111fad9a
+Author: SouravSBH <124552082+SouravSBH@users.noreply.github.com>
+Date:   Fri Feb 10 15:23:02 2023 +0600
+
+    Delete
+
+commit a9a9c465b85194ecb5b2a03f4ae7a67336d6ddd9
+Author: SouravSBH <124552082+SouravSBH@users.noreply.github.com>
+Date:   Fri Feb 10 15:22:43 2023 +0600
+
+    Yoyo
+
+commit 1b77415b59209a56259d4f33647525504e9b3d86
+Author: SouravSBH <124552082+SouravSBH@users.noreply.github.com>
+Date:   Fri Feb 10 11:45:41 2023 +0600
+
+    bin removed from staged
+
+commit 59fcb2c93591e8a99760438514538991b1c6d36a
+Author: SouravSBH <124552082+SouravSBH@users.noreply.github.com>
+Date:   Fri Feb 10 11:39:54 2023 +0600
+
+    ignore
+
+commit ba38c20d595453928afcd5949b6b08cc35c37f01
+Author: SouravSBH <124552082+SouravSBH@users.noreply.github.com>
+Date:   Fri Feb 10 11:32:42 2023 +0600
+
+    Hii
+
+commit 169171c8161ec436dc4b0b83ef35298484244a7c
+:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+commit 685dd71db090b914a4be58f267f2b51e22362f69 (HEAD -> master)
+Author: SouravSBH <124552082+SouravSBH@users.noreply.github.com>
+Date:   Fri Feb 10 15:55:49 2023 +0600
+
+    last commit of snapshot
+
+commit 5379b2784304d900f9d0f9d71715c5f7111fad9a
+Author: SouravSBH <124552082+SouravSBH@users.noreply.github.com>
+Date:   Fri Feb 10 15:23:02 2023 +0600
+
+    Delete
+
+commit a9a9c465b85194ecb5b2a03f4ae7a67336d6ddd9
+Author: SouravSBH <124552082+SouravSBH@users.noreply.github.com>
+Date:   Fri Feb 10 15:22:43 2023 +0600
+
+    Yoyo
+
+commit 1b77415b59209a56259d4f33647525504e9b3d86
+Author: SouravSBH <124552082+SouravSBH@users.noreply.github.com>
+Date:   Fri Feb 10 11:45:41 2023 +0600
+
+    bin removed from staged
+
+commit 59fcb2c93591e8a99760438514538991b1c6d36a
+Author: SouravSBH <124552082+SouravSBH@users.noreply.github.com>
+Date:   Fri Feb 10 11:39:54 2023 +0600
+
+    ignore
+
+commit ba38c20d595453928afcd5949b6b08cc35c37f01
+Author: SouravSBH <124552082+SouravSBH@users.noreply.github.com>
+Date:   Fri Feb 10 11:32:42 2023 +0600
+
+    Hii
+
+commit 169171c8161ec436dc4b0b83ef35298484244a7c
+
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git log --oneline
+685dd71 (HEAD -> master) last commit of snapshot
+5379b27 Delete
+a9a9c46 Yoyo
+1b77415 bin removed from staged
+59fcb2c ignore
+ba38c20 Hii
+169171c ignore
+76d33ba a short desc
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git switch bugfix
+fatal: invalid reference: bugfix
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git switch bugfix-new-name
+Switched to branch 'bugfix-new-name'
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git log --oneline
+d9dd201 (HEAD -> bugfix-new-name) branch 1st commit
+5379b27 Delete
+a9a9c46 Yoyo
+1b77415 bin removed from staged
+59fcb2c ignore
+ba38c20 Hii
+169171c ignore
+76d33ba a short desc
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git log --oneline --all
+d9dd201 (HEAD -> bugfix-new-name) branch 1st commit
+685dd71 (master) last commit of snapshot
+5379b27 Delete
+a9a9c46 Yoyo
+1b77415 bin removed from staged
+59fcb2c ignore
+ba38c20 Hii
+169171c ignore
+76d33ba a short desc
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git switch master
+Switched to branch 'master'
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git log master..bugfix-new-name
+commit d9dd201aee32201fe36790f18240842c8f26a69f (bugfix-new-name)
+Author: SouravSBH <124552082+SouravSBH@users.noreply.github.com>
+Date:   Fri Feb 10 16:01:30 2023 +0600
+
+    branch 1st commit
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git diff master..bugfix-new-name
+diff --git a/branch.txt b/branch.txt
+new file mode 100644
+index 0000000..80858c1
+--- /dev/null
++++ b/branch.txt
+@@ -0,0 +1 @@
++branch
+diff --git a/file.txt b/file.txt
+deleted file mode 100644
+index d52ebf6..0000000
+--- a/file.txt
++++ /dev/null
+@@ -1,5 +0,0 @@
+-hello
+-world
+-xD
+-onex
+-h
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git log --oneline --all --graph
+* d9dd201 (bugfix-new-name) branch 1st commit
+| * 685dd71 (HEAD -> master) last commit of snapshot
+|/  
+* 5379b27 Delete
+* a9a9c46 Yoyo
+* 1b77415 bin removed from staged
+* 59fcb2c ignore
+* ba38c20 Hii
+* 169171c ignore
+* 76d33ba a short desc
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git status -s
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git status -s
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git log --oneline --all --graph
+* d9dd201 (bugfix-new-name) branch 1st commit
+| * 685dd71 (HEAD -> master) last commit of snapshot
+|/  
+* 5379b27 Delete
+* a9a9c46 Yoyo
+* 1b77415 bin removed from staged
+* 59fcb2c ignore
+* ba38c20 Hii
+* 169171c ignore
+* 76d33ba a short desc
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git switch bugfix-new-name
+Switched to branch 'bugfix-new-name'
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git swithc -C test-ff
+git: 'swithc' is not a git command. See 'git --help'.
+
+The most similar command is
+	switch
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git swith -C test-ff
+git: 'swith' is not a git command. See 'git --help'.
+
+The most similar command is
+	switch
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git switch -C test-ff
+Switched to a new branch 'test-ff'
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ echo g>testfile.txt
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git status -s
+?? testfile.txt
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git add .
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git commit -m "hiiii"
+[test-ff a3ba9f3] hiiii
+ 1 file changed, 1 insertion(+)
+ create mode 100644 testfile.txt
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git log --oneline --all --graph
+* a3ba9f3 (HEAD -> test-ff) hiiii
+* d9dd201 (bugfix-new-name) branch 1st commit
+| * 685dd71 (master) last commit of snapshot
+|/  
+* 5379b27 Delete
+* a9a9c46 Yoyo
+* 1b77415 bin removed from staged
+* 59fcb2c ignore
+* ba38c20 Hii
+* 169171c ignore
+* 76d33ba a short desc
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git branch
+  bugfix-new-name
+  master
+* test-ff
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git switch bugfix-new-name
+Switched to branch 'bugfix-new-name'
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git merge --no-ff test-ff
+Merge made by the 'ort' strategy.
+ testfile.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 testfile.txt
+sbh@sbh-TravelMate-P214-53:~/Desktop/Moon$ git log --oneline --all --graph
+*   38058b0 (HEAD -> bugfix-new-name) Merge branch 'test-ff' into bugfix-new-name
+|\  
+| * a3ba9f3 (test-ff) hiiii
+|/  
+* d9dd201 branch 1st commit
+| * 685dd71 (master) last commit of snapshot
+|/  
+* 5379b27 Delete
+* a9a9c46 Yoyo
+* 1b77415 bin removed from staged
+* 59fcb2c ignore
+* ba38c20 Hii
+* 169171c ignore
+* 76d33ba a short desc
